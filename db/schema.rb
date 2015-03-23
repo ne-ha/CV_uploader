@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323093117) do
+ActiveRecord::Schema.define(version: 20150323102251) do
 
   create_table "uploads", force: true do |t|
     t.integer  "user_id"
@@ -41,5 +41,13 @@ ActiveRecord::Schema.define(version: 20150323093117) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_uploads", force: true do |t|
+    t.integer "user_id"
+    t.integer "upload_id"
+  end
+
+  add_index "users_uploads", ["upload_id"], name: "index_users_uploads_on_upload_id", using: :btree
+  add_index "users_uploads", ["user_id"], name: "index_users_uploads_on_user_id", using: :btree
 
 end
