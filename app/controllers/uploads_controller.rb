@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @uploads = current_user.uploads
+    @uploads = current_user.my_uploads
   end
 
   def new
@@ -10,7 +10,6 @@ class UploadsController < ApplicationController
   end
 
   def create
-    binding.pry
     @uploads = current_user.my_uploads.create(cv_params)
     if @uploads.save
       flash[:notice] = "The file is uploaded."
