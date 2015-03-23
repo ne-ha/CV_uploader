@@ -15,3 +15,16 @@
     </form>
   <%end%>
 </div>
+
+<table>
+<tr>
+  <th>Name</th>
+  <th>File</th>
+</tr>
+  <% @uploads.each do |cv|%>
+    <tr>
+      <td><%= cv.name%></td>
+      <td><%= cv.file %></td>
+    </tr>
+  <%end%>
+</table>
