@@ -1,6 +1,17 @@
 <div class="form">
   <%= form_for :upload, :url => uploads_path do |f| %>
-    Name : <%= f.text_field :name, placeholder: "Name of the person" %>
-    File : 
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="exampleInputName2">Name </label>
+        <%= f.text_field :name, placeholder: "Name of the person" %>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputName2">File </label>
+        <!-- <div class ="file"> -->
+          <%= f.file_field :file %>
+        <!-- </div> -->
+      </div>
+      <%= f.submit "Upload", class: "btn btn-primary"%>
+    </form>
   <%end%>
 </div>
