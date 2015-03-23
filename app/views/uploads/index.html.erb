@@ -1,1 +1,6 @@
-asds
+<div class="form">
+  <%= form_for :upload, :url => uploads_path do |f| %>
+    Name : <%= f.text_field :name, placeholder: "Name of the person" %>
+    File : 
+  <%end%>
+</div>
