@@ -8,9 +8,13 @@
 </head>
 <body>
 
-<%= render 'layouts/user_widget' %>
-<%= flash[:notice] %>
-<%= yield %>
+<div id="wrapper">
+  <%= render 'layouts/user_widget' %>
+  <%= flash[:notice] %>
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
