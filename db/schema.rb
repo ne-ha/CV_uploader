@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323110932) do
+ActiveRecord::Schema.define(version: 20150324075730) do
 
   create_table "uploads", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150323110932) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
+    t.text     "shared"
   end
 
   create_table "users", force: true do |t|
