@@ -14,7 +14,7 @@ class UploadsController < ApplicationController
     if @uploads.save
       flash[:notice] = "The file is uploaded."
     else
-      flash[:notice] = "File is not uploaded."
+      flash[:notice] = "File cannot be uploaded, re-check the fields."
     end
     redirect_to(root_path)
   end
