@@ -1,0 +1,24 @@
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload Resume</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :upload, :url => uploads_path do |f| %>
+          <div class="form-group">
+             Name : <%= f.text_field :name, placeholder: "Name of the person" %>
+          </div>  
+            Resume : 
+          <div class="for-file">     
+            <%= f.file_field :file%>
+            <p class="help-block">Upload only pdf, doc, docx</p>
+          </div>
+          <%= f.submit "Upload", class: "btn btn-default" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
