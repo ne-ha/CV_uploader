@@ -29,6 +29,17 @@ class UploadsController < ApplicationController
     redirect_to(root_path)
   end
 
+  def update
+    @upload = current_user.uploads.find(params[:id])
+    if params[:commit] == 'Share'
+      @upload.update_attributes(cv_params)
+      flash[:notice] = "Resume is shared to other users."
+    else
+      flash[:notice] = "Resume cannot be shared to other users."
+    end
+    redirect_to(root_path)
+  end  
+
   def share_resume
     @upload = Upload.find(params[:upload_id])
   end
