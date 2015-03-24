@@ -38,6 +38,10 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'devise'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver', '>=2.45.0.dev3'
 end
 
 # Use ActiveModel has_secure_password
