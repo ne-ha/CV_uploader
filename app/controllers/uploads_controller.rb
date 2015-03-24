@@ -14,9 +14,9 @@ class UploadsController < ApplicationController
   def create
     @upload = current_user.my_uploads.create(cv_params)
     if @upload.save
-      flash[:notice] = "The file is uploaded."
+      flash[:notice] = "The resume is uploaded."
     else
-      flash[:notice] = "File cannot be uploaded, re-check the fields."
+      flash[:notice] = "Resume cannot be uploaded, re-check the fields."
     end
     redirect_to(root_path)
   end
@@ -26,7 +26,7 @@ class UploadsController < ApplicationController
     if @upload.delete
       flash[:notice] = "Resume is delete."
     else
-      flash[:notice] = "The file cannot be deleted."
+      flash[:notice] = "The resume cannot be deleted."
     end
     redirect_to(root_path)
   end
