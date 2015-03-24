@@ -3,6 +3,8 @@ class UploadsController < ApplicationController
 
   def index
     @uploads = current_user.my_uploads
+    #filtering serialized data shared
+    @shared = Upload.all.select{|u| u.shared && u.shared.include?(current_user.id.to_s)}
   end
 
   def new
@@ -21,7 +23,7 @@ class UploadsController < ApplicationController
 
   def destroy
     @upload = current_user.my_uploads.find(params[:id])
-    if @upload.destroy
+    if @upload.delete
       flash[:notice] = "Resume is delete."
     else
       flash[:notice] = "The file cannot be deleted."
@@ -32,10 +34,8 @@ class UploadsController < ApplicationController
   def update
     @upload = current_user.my_uploads.find(params[:id])
     if params[:commit] == 'Share'
-      #@upload.update_attributes(share_params)
-      
-      @upload.user_ids = params[:user][:user_ids]
-      # @upload.save
+      @upload.shared = params[:user][:user_id]
+      @upload.save
       flash[:notice] = "Resume is shared to other users."
     else
       flash[:notice] = "Resume cannot be shared to other users."
@@ -49,10 +49,6 @@ class UploadsController < ApplicationController
 
   private
   def cv_params
-    params.require(:upload).permit(:name ,:file)
-  end
-
-  def share_params
-    params.require(:share).permit(:upload_id, :user_id=>[])
+    params.require(:upload).permit(:name ,:file, :shared=>[])
   end
 end
