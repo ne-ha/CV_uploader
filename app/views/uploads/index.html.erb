@@ -22,6 +22,7 @@
   <th>File</th>
 </tr>
   <% if @uploads.present? %>
+    <td colspan="2">Uploaded Resume</td>
     <% @uploads.each do |resume|%>
       <tr>
         <td><%= resume.name%></td>
@@ -31,7 +32,9 @@
         </td>
       </tr>
     <%end%>
-  <% elsif @shared.present? %>
+  <%end%>
+  <% if @shared.present? %>
+    <td colspan="2">Shared Resume</td>
     <% @shared.each do |shared|%>
       <tr>
         <td><%= shared.name%></td>
@@ -41,8 +44,6 @@
         </td>
       </tr>
     <% end %>
-  <%else%>
-      There are no resumes.
   <%end%>
 </table>
 
