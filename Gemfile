@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver', '>=2.45.0.dev3'
+  gem 'spring'
 end
 
 # Use ActiveModel has_secure_password
