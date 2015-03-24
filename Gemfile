@@ -19,7 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'carrierwave'
 # gem 'therubyracer', platforms: :ruby
-
+gem 'haml', '~> 4.0.5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
