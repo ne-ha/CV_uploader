@@ -24,7 +24,14 @@
   <% @uploads.each do |resume|%>
     <tr>
       <td><%= resume.name%></td>
-      <td><%= link_to "Download Resume", resume.file_url , class: "btn btn-primary" %></td>
+      <td><%= link_to "Download Resume", resume.file_url , class: "btn btn-primary btn-sm" %>
+      <%= link_to "Remove", upload_path(resume), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" %>
+      <%= link_to "Share", upload_share_resume_path(resume.id), class: "btn btn-primary btn-sm", :remote => true %>
+      </td>
     </tr>
   <%end%>
 </table>
+
+<div id="modal_for_share">
+
+</div>
