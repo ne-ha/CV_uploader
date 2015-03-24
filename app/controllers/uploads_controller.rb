@@ -10,8 +10,8 @@ class UploadsController < ApplicationController
   end
 
   def create
-    @uploads = current_user.my_uploads.create(cv_params)
-    if @uploads.save
+    @upload = current_user.my_uploads.create(cv_params)
+    if @upload.save
       flash[:notice] = "The file is uploaded."
     else
       flash[:notice] = "File cannot be uploaded, re-check the fields."
