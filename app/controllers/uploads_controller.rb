@@ -24,7 +24,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload = current_user.my_uploads.find(params[:id])
     if @upload.delete
-      flash[:notice] = "Resume is delete."
+      flash[:notice] = "Resume is deleted."
     else
       flash[:notice] = "The resume cannot be deleted."
     end
