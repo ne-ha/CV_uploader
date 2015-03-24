@@ -4,6 +4,8 @@ CVUploader::Application.routes.draw do
   devise_scope :user do
     patch "/confirm" => "confirmations#confirm"
   end
+  
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   resources :uploads do
     get 'share_resume'
