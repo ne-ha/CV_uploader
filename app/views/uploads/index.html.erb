@@ -21,10 +21,10 @@
   <th>Name</th>
   <th>File</th>
 </tr>
-  <% @uploads.each do |cv|%>
+  <% @uploads.each do |resume|%>
     <tr>
-      <td><%= cv.name%></td>
-      <td><%= cv.file %></td>
+      <td><%= resume.name%></td>
+      <td><%= link_to "Download Resume", resume.file_url , class: "btn btn-primary" %></td>
     </tr>
   <%end%>
 </table>
