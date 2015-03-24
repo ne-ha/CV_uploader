@@ -26,7 +26,7 @@
     <% @uploads.each do |resume|%>
       <tr>
         <td><%= resume.name%></td>
-        <td><%= link_to "Download Resume", resume.file_url , class: "btn btn-primary btn-sm" %>
+        <td><%= link_to "Download Resume", resume.file_url ,target: :_blank , class: "btn btn-primary btn-sm" %>
         <%= link_to "Remove", upload_path(resume), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" %>
         <%= link_to "Share", upload_share_resume_path(resume.id), class: "btn btn-primary btn-sm", :remote => true %>
         </td>
@@ -38,7 +38,7 @@
     <% @shared.each do |shared|%>
       <tr>
         <td><%= shared.name%></td>
-        <td><%= link_to "Download Resume", shared.file_url , class: "btn btn-primary btn-sm" %>
+        <td><%= link_to "Download Resume", shared.file_url, target: :_blank , class: "btn btn-primary btn-sm"%>
         <%= link_to "Remove", upload_path(shared), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" ,disabled: "disabled"%>
         <%= link_to "Share", upload_share_resume_path(shared.id), class: "btn btn-primary btn-sm", :remote => true ,disabled: "disabled"%>
         </td>
