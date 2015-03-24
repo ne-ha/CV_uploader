@@ -8,7 +8,7 @@
       <div class="form-group">
         <label for="exampleInputName2">File </label>
         <!-- <div class ="file"> -->
-          <%= f.file_field :file %>
+          <%= f.file_field :file %>(Upload only pdf, doc, htm, html, docx)
         <!-- </div> -->
       </div>
       <%= f.submit "Upload", class: "btn btn-primary"%>
@@ -16,7 +16,7 @@
   <%end%>
 </div>
 
-<table>
+<table class ="table table-bordered">
 <tr>
   <th>Name</th>
   <th>File</th>
