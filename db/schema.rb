@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323110932) do
+ActiveRecord::Schema.define(version: 20150324044430) do
+
+  create_table "shares", force: true do |t|
+    t.string "share_to"
+  end
 
   create_table "uploads", force: true do |t|
     t.integer  "user_id"
