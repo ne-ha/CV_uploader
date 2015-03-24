@@ -5,7 +5,7 @@ describe Upload, type: :model do
     it "should be required" do
       upload = Upload.new(file: nil)
       upload.valid?
-      expect(upload).to be_invalid?
+      expect(upload).to be_invalid
     end
   end
 end
