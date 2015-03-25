@@ -1,46 +1,49 @@
-<%= link_to "Upload Resume","", id: "upload_resume" , :remote => true , class: "btn btn-primary btn-lg" %>
-
-<table class ="table table-bordered">
-<tr>
-  <th>Name</th>
-  <th>File</th>
-</tr>
-  <% if @uploads.empty? && @shared.empty?%>
-    <td colspan="2">There are no shared and uploaded resumes </td>
-  <% end %>
-  <% if @uploads.present? %>
-    <td colspan="2">Uploaded Resume</td>
-    <% @uploads.each do |resume|%>
-      <tr>
-        <td><%= resume.name%></td>
-        <td><%= link_to "Download Resume", resume.file_url ,target: :_blank , class: "btn btn-primary btn-sm" %>
-        <%= link_to "Remove", upload_path(resume), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" %>
-        <%= link_to "Share", upload_share_resume_path(resume.id), class: "btn btn-primary btn-sm", :remote => true %>
-        </td>
-      </tr>
-    <%end%>
-  <%end%>
-  <% if @shared.present? %>
-    <td colspan="2">Shared Resume</td>
-    <% @shared.each do |shared|%>
-      <tr>
-        <td><%= shared.name%></td>
-        <td><%= link_to "Download Resume", shared.file_url, target: :_blank , class: "btn btn-primary btn-sm"%>
-        <%= link_to "Remove", upload_path(shared), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" ,disabled: "disabled"%>
-        <%= link_to "Share", upload_share_resume_path(shared.id), class: "btn btn-primary btn-sm", :remote => true ,disabled: "disabled"%>
-        </td>
-      </tr>
+<div class="upload">
+  <%= link_to "Upload Resume","", id: "upload_resume" , :remote => true , class: "btn btn-primary btn-lg" %>
+</div>
+<div id="border">
+  <table class ="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>File</th>
+  </tr>
+    <% if @uploads.empty? && @shared.empty?%>
+      <td colspan="2">There are no shared and uploaded resumes </td>
     <% end %>
-  <%end%>
-</table>
-<center>
-  <%if @uploads.present? %>
-    <%= paginate @uploads %>
-  <%end%>
-  <%if @shared.present? %>
-    <%= paginate @shared %>
-  <%end%>
-</center>
+    <% if @uploads.present? %>
+      <td colspan="2">Uploaded Resume</td>
+      <% @uploads.each do |resume|%>
+        <tr>
+          <td><%= resume.name%></td>
+          <td><%= link_to "Download Resume", resume.file_url ,target: :_blank , class: "btn btn-primary btn-sm" %>
+          <%= link_to "Remove", upload_path(resume), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" %>
+          <%= link_to "Share", upload_share_resume_path(resume.id), class: "btn btn-primary btn-sm", :remote => true %>
+          </td>
+        </tr>
+      <%end%>
+    <%end%>
+    <% if @shared.present? %>
+      <td colspan="2">Shared Resume</td>
+      <% @shared.each do |shared|%>
+        <tr>
+          <td><%= shared.name%></td>
+          <td><%= link_to "Download Resume", shared.file_url, target: :_blank , class: "btn btn-primary btn-sm"%>
+          <%= link_to "Remove", upload_path(shared), :method=> 'delete', data: {confirm: "Are you sure"} , class: "btn btn-primary btn-sm" ,disabled: "disabled"%>
+          <%= link_to "Share", upload_share_resume_path(shared.id), class: "btn btn-primary btn-sm", :remote => true ,disabled: "disabled"%>
+          </td>
+        </tr>
+      <% end %>
+    <%end%>
+  </table>
+  <center>
+    <%if @uploads.present? %>
+      <%= paginate @uploads %>
+    <%end%>
+    <%if @shared.present? %>
+      <%= paginate @shared %>
+    <%end%>
+  </center>
+</div>
 
 <%= render 'shared/modal_upload_resume'%>
 
