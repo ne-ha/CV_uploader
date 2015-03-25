@@ -9,7 +9,9 @@
 <body>
 
 <div id="wrapper">
-  <%= render 'layouts/user_widget' %>
+  <div class="navigation">
+    <%= render 'layouts/user_widget' %>
+  </div>
   <%= flash[:notice] %>
   <div id="content">
     <%= yield %>
