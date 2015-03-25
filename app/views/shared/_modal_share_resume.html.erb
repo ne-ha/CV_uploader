@@ -9,7 +9,14 @@
         <%= form_for :upload, :url => upload_path(upload.id) ,:html => {:method => "put" }  do |f| %>
           <div class="form-group">
             Share With :<br />
-            <%= collection_check_boxes(:user, :user_id, User.where.not("id=?",[current_user.id]), :id, :email)%> 
+            <%= collection_check_boxes(:user, :user_id, User.where.not("id=?",[current_user.id]), :id, :email) do |c|%> 
+            <div class="checkbox">
+              <%= c.label do %>
+                <%= c.check_box %>
+                <%= c.object.email %>
+              <%end%>
+            </div>
+            <%end%>
           </div>       
           <%= f.submit "Share", class: "btn btn-default" %>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
