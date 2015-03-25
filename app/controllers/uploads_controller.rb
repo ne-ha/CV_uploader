@@ -2,9 +2,9 @@ class UploadsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @uploads = current_user.my_uploads
+    @uploads = Kaminari.paginate_array(current_user.my_uploads).page(params[:page]).per(5)
     #filtering serialized data shared
-    @shared = Upload.all.select{|u| u.shared && u.shared.include?(current_user.id.to_s)}
+    @shared = Kaminari.paginate_array(Upload.all.select{|u| u.shared && u.shared.include?(current_user.id.to_s)}).page(params[:page]).per(5)
   end
 
   def new
