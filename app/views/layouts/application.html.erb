@@ -12,7 +12,9 @@
   <div class="navigation">
     <%= render 'layouts/user_widget' %>
   </div>
-  <%= flash[:notice] %>
+  <div id="flash">
+    <%= flash[:notice] %>
+  </div>
   <div id="content">
     <%= yield %>
   </div>
