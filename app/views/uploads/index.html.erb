@@ -5,6 +5,9 @@
   <th>Name</th>
   <th>File</th>
 </tr>
+  <% if @uploads.empty? && @shared.empty?%>
+    <td colspan="2">There are no shared and uploaded resumes </td>
+  <% end %>
   <% if @uploads.present? %>
     <td colspan="2">Uploaded Resume</td>
     <% @uploads.each do |resume|%>
