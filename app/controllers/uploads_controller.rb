@@ -33,24 +33,32 @@ class UploadsController < ApplicationController
 
   def update
     @upload = current_user.my_uploads.find(params[:id])
-    shared_ids = Array.new
-    if params[:upload][:user][:email].present?
-      @invite_user = User.invite!(:email=>params[:upload][:user][:email])
-      shared_ids << @invite_user.id
-      
-      # if params[:commit] == 'Share'
-      #   binding.pry
-      #   new_shared_ids = params[:user][:user_id]
-      #   old_shared_ids = @upload.shared
-      #   @upload.shared = old_shared_ids + new_shared_ids
-      #   @upload.save
-      #   flash[:notice] = "Resume is shared to other users."
-      # else
-      #   flash[:notice] = "Resume cannot be shared to other users."
-      # end
+    invite_by_email
+    share_by_email
+    if @upload.save
+      flash[:notice] = "Resume is shared to other users."
+    else
+      flash[:notice] = "Resume cannot be shared to other users."
     end
     redirect_to(root_path)
   end  
+
+  def share_by_email
+    if params[:commit] == 'Share'
+      new_shared = Array.new
+      new_shared = params[:user][:user_id]
+      @upload.shared = new_shared
+    end  
+  end
+
+  def invite_by_email
+    if params[:upload][:user][:email].present?
+      @invite_user = User.invite!(:email=>params[:upload][:user][:email])
+      new_shared = Array.new
+      new_shared = @invite_user.id
+      @upload.shared = new_shared
+    end     
+  end
 
   def share_resume
     @upload = Upload.find(params[:upload_id])
