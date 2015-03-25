@@ -10,12 +10,13 @@
 
 <div id="wrapper">
   <div class="navigation">
+    <h3>Resume Uploader</h3>
     <%= render 'layouts/user_widget' %>
   </div>
-  <div id="flash">
-    <%= flash[:notice] %>
-  </div>
   <div id="content">
+    <div id="flash">
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
   </div>
 </div>
