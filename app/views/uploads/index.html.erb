@@ -11,7 +11,7 @@
       <td colspan="2">There are no shared and uploaded resumes </td>
     <% end %>
     <% if @uploads.present? %>
-      <td colspan="2">Uploaded Resume</td>
+      <td colspan="2"><b>Uploaded Resume</b></td>
       <% @uploads.each do |resume|%>
         <tr>
           <td><%= resume.name%></td>
@@ -23,7 +23,7 @@
       <%end%>
     <%end%>
     <% if @shared.present? %>
-      <td colspan="2">Shared Resume</td>
+      <td colspan="2"><b>Shared Resume</b></td>
       <% @shared.each do |shared|%>
         <tr>
           <td><%= shared.name%></td>
