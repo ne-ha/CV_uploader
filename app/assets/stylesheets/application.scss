@@ -14,10 +14,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+#wrapper
+{
+  width: 1200px;  
+  margin: 0 auto;
+}
+
 .sign-out
 {
   float: right;
-  padding-right: 50px;
   margin-top: 10px;
 }
 
@@ -34,9 +40,7 @@ body
 .table
 {
   margin-top: 30px;
-  margin-left: 375px;
   text-align: center;
-  width: 50%;
 }
 
 .table th
@@ -52,5 +56,18 @@ body
 
 #upload_resume
 {
-  margin: 170px 0px 30px 660px;
+  margin-left: 520px;
+  margin-top: 96px;
+}
+
+#border
+{
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px; 
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.upload
+{
 }
