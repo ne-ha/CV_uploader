@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-$(document).ready(function(){
+$(document).on('page:change',function(){
   $("#upload_resume").click(function(){
     $("#uploadModal").modal("show");
   });
