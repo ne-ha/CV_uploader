@@ -30,6 +30,14 @@
     <% end %>
   <%end%>
 </table>
+<center>
+  <%if @uploads.present? %>
+    <%= paginate @uploads %>
+  <%end%>
+  <%if @shared.present? %>
+    <%= paginate @shared %>
+  <%end%>
+</center>
 
 <%= render 'shared/modal_upload_resume'%>
 
