@@ -20,7 +20,7 @@
           </div>  
           <%= f.fields_for :user do |user| %>
             <div class="form-group">
-              <%= user.email_field :email , :placeholder=>"example@test.com" %>
+              Email : <%= user.email_field :email , :placeholder=>"example@test.com" %>
             </div>
           <%end%>   
           <%= f.submit "Share", class: "btn btn-primary" %>
