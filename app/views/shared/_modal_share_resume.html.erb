@@ -17,7 +17,12 @@
                 </div>
               <%end%>
             <%end%>
-          </div>       
+          </div>  
+          <%= f.fields_for :user do |user| %>
+            <div class="form-group">
+              <%= user.email_field :email , :placeholder=>"example@test.com" %>
+            </div>
+          <%end%>   
           <%= f.submit "Share", class: "btn btn-primary" %>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <% end %>
