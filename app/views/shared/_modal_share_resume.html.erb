@@ -10,15 +10,15 @@
           <div class="form-group">
             Share With :<br />
             <%= collection_check_boxes(:user, :user_id, User.where.not("id=?",[current_user.id]), :id, :email) do |c|%> 
-            <div class="checkbox">
               <%= c.label do %>
-                <%= c.check_box %>
-                <%= c.object.email %>
+                <div class="checkbox-inline">
+                  <%= c.check_box %>
+                  <%= c.object.email %>
+                </div>
               <%end%>
-            </div>
             <%end%>
           </div>       
-          <%= f.submit "Share", class: "btn btn-default" %>
+          <%= f.submit "Share", class: "btn btn-primary" %>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <% end %>
       </div>
