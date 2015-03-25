@@ -33,12 +33,21 @@ class UploadsController < ApplicationController
 
   def update
     @upload = current_user.my_uploads.find(params[:id])
-    if params[:commit] == 'Share'
-      @upload.shared = params[:user][:user_id]
-      @upload.save
-      flash[:notice] = "Resume is shared to other users."
-    else
-      flash[:notice] = "Resume cannot be shared to other users."
+    shared_ids = Array.new
+    if params[:upload][:user][:email].present?
+      @invite_user = User.invite!(:email=>params[:upload][:user][:email])
+      binding.pry
+      shared_ids << @invite_user.id
+      
+      if params[:commit] == 'Share'
+        new_shared_ids = params[:user][:user_id]
+        old_shared_ids = @upload.shared
+        @upload.shared = old_shared_ids + new_shared_ids
+        @upload.save
+        flash[:notice] = "Resume is shared to other users."
+      else
+        flash[:notice] = "Resume cannot be shared to other users."
+      end
     end
     redirect_to(root_path)
   end  
@@ -50,5 +59,9 @@ class UploadsController < ApplicationController
   private
   def cv_params
     params.require(:upload).permit(:name ,:file, :shared=>[])
+  end
+
+  def user_params
+    params.require(:user).permit(:email)
   end
 end
