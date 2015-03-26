@@ -8,7 +8,7 @@ class Upload < ActiveRecord::Base
     if params[:upload][:user][:email].present?
       @invite_user = User.invite!(:email=>params[:upload][:user][:email])
       next_shared = Array.new
-      of_email = @invite_user.id
+      of_email = (@invite_user.id).to_s
       next_shared = of_email
     end     
   end
