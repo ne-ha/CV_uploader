@@ -38,7 +38,8 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0', require: false
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
