@@ -31,6 +31,8 @@ gem 'kaminari'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'devise_invitable', '~> 1.3.4'
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
