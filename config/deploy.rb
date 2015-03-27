@@ -15,7 +15,7 @@ set :scm, :git
 
 # Default value for :format is :pretty
 set :format, :pretty
-
+set :ssh_options[:forward_agent] = true
 # Default value for :log_level is :debug
 # set :log_level, :debug
 
