@@ -1,0 +1,2 @@
+$("#modal_for_share").html('<%= escape_javascript(render :partial=> "shared/modal_share_resume",:locals =>{:upload => @upload, :user => @user})%>')
+$("#shareModal").modal("show");

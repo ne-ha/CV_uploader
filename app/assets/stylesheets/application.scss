@@ -1,0 +1,124 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+#wrapper
+{
+  width: 1200px;  
+  margin: 0 auto;
+}
+
+.sign-out
+{
+  float: right;
+  margin-top: 10px;
+}
+
+body 
+{
+  font-size: 17px;
+  background-color: #D8D8D8;
+}
+
+.form
+{
+  padding: 100px 0px 0px 180px;
+}
+
+.table
+{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.table th
+{
+  text-align: center;
+}
+
+.for-file
+{
+  padding-left: 82px;
+  margin-top: -25px;
+}
+
+#upload_resume
+{
+  margin-left: 520px;
+  margin-top: 96px;
+}
+
+#border
+{
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px; 
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #FFFDFD;
+}
+
+.navigation
+{
+}
+
+#flash
+{
+  text-align: center;
+  margin-left: 194px;
+}
+
+p
+{
+  margin-top: -50px;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 230px;
+  margin-top: 100px;
+}
+
+.sign_up
+{
+  width:400px;
+}
+
+.resend_confirmation
+{
+  width: 470px;
+}
+
+.log_in
+{
+  width:400px;
+}
+
+.forgot_password
+{
+  width:470px;
+}
+
+.invitation
+{
+  width:470px;
+}
+
+.create_password
+{
+  width: 470px;
+}

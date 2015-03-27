@@ -1,0 +1,32 @@
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Share To</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :upload, :url => upload_path(upload.id) ,:html => {:method => "put" }  do |f| %>
+          <div class="form-group">
+            Share With :<br />
+            <%= collection_check_boxes(:user, :user_id, User.where.not("id=?",[current_user.id]), :id, :email) do |c|%> 
+              <%= c.label do %>
+                <div class="checkbox-inline">
+                  <%= c.check_box %>
+                  <%= c.object.email %>
+                </div>
+              <%end%>
+            <%end%>
+          </div>  
+          <%= f.fields_for :user do |user| %>
+            <div class="form-group">
+              Email : <%= user.email_field :email , :placeholder=>"example@test.com" %>
+            </div>
+          <%end%>   
+          <%= f.submit "Share", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

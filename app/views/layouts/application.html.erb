@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CVUploader</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+  <div class="navigation">
+    <%= render 'layouts/user_widget' %>
+  </div>
+  <div id="content">
+    <div id="flash">
+      <%= flash[:notice] %>
+    </div>
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>
