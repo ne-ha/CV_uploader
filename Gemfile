@@ -31,6 +31,9 @@ gem 'kaminari'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'devise_invitable', '~> 1.3.4'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
+gem 'capistrano-bundler'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -38,8 +41,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '~> 2.0', require: false
+  
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
