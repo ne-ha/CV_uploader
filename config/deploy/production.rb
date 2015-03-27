@@ -4,11 +4,10 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{deployer@jyaasa.com}
-role :web, %w{deployer@jyaasa.com}
-role :db,  %w{deployer@jyaasa.com}
+role :app, 'www.jyaasa.com'
 set :rvm_type, :system
 set :rvm_ruby_version, '2.1.0'
+
 
 set :bundle_flags, '--deployment'
 # Extended Server Syntax
