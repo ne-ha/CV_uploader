@@ -10,6 +10,8 @@ CVUploader::Application.routes.draw do
   resources :uploads do
     get 'share_resume'
   end
+
+  get '/check_valid_email' => "users#check_valid_email", as: :check_valid_email
   # See how all your routes lay out with "rake routes".
   root to: "uploads#index"
   # You can have the root of your site routed with "root"

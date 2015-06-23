@@ -1,16 +1,17 @@
 %div.center-block
-  %div.create_password
-    %h2 Create a password
-    = form_for(resource, :as => resource_name, :url => confirm_path) do |form|
-      = devise_error_messages!
-      %div.field
-        = form.label :password 
-        %br/
-        = form.password_field :password, :input_html => {:autofocus => true}
-      %div.field
-        = form.label :password_confirmation
-        %br/
-        = form.password_field :password_confirmation
-      = form.hidden_field :confirmation_token, :input_html => { :value => @original_token }
-      %div.actions
-        = form.submit :Submit, :label => 'Confirm Account'
+  %div.panel
+    %div.create_password
+      %h2 Create a password
+      = form_for(resource, :as => resource_name, :url => confirm_path, :html => { id: 'create-password' }) do |form|
+        / = devise_error_messages!
+        %div.form-group
+          = form.label :password 
+          %br/
+          = form.password_field :password, :input_html => {:autofocus => true}
+        %div.form-group
+          = form.label :password_confirmation
+          = form.password_field :password_confirmation
+          = form.hidden_field :confirmation_token, :input_html => { :value => @original_token }
+        %div.actions
+          %div.form-group
+            = form.submit :Submit, class: "btn btn-primary"

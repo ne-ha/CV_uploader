@@ -2,6 +2,7 @@ class Upload < ActiveRecord::Base
   has_and_belongs_to_many :users
   mount_uploader :file, FileUploader
   validates :file, presence: true
+  validate :file_size_validation
   serialize :shared
 
   def invite_by_email(params)
@@ -19,5 +20,11 @@ class Upload < ActiveRecord::Base
       of_email = params[:user][:user_id]
       new_shared = of_email
     end  
+  end
+
+  private
+  
+  def file_size_validation
+    errors[:file] << "should be less than 2MB" if file.size > 2.megabytes
   end
 end

@@ -12,7 +12,7 @@
           </div>  
             Resume : 
           <div class="for-file">     
-            <%= f.file_field :file%>
+            <%= f.file_field :file, data: {icon: "false"} ,:onchange =>"validateFiles(this);",:data => { :max_file_size => 2.megabytes }%>
             <p class="help-block">Upload only pdf, doc, docx</p>
           </div>
           <%= f.submit "Upload", class: "btn btn-primary" %>
