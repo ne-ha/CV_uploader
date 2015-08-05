@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel">Upload Resume</h4>
       </div>
       <div class="modal-body">
-        <%= form_for :upload, :url => uploads_path do |f| %>
+        <%= form_for :upload, :url => uploads_path, html: { :id => "upload_form" } do |f| %>
           <div class="form-group">
              Name : <%= f.text_field :name, placeholder: "Name of the person" %>
           </div>  

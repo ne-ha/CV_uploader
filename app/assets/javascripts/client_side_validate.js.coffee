@@ -104,3 +104,16 @@ $ ->
         required: "Please enter a password"
         minlength: "Your password must be at least 8 characters long"
   )
+
+$ ->    
+  # validator rules
+  validator = $("#upload_form ").validate(
+    # errorClass: "alert-danger"
+    errorElement: "div"
+    rules:
+      "upload[name]":
+        required: true
+
+      "upload[file]":
+        required: true
+  )

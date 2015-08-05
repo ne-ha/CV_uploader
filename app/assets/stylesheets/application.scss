@@ -135,3 +135,14 @@ p
   margin-top: 20px;
   margin: 0 auto;
 }
+
+.alert-message-div
+{
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  z-index: 900;
+  text-align: center;
+  margin-top: 70px;
+}

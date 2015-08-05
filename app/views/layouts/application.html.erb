@@ -13,12 +13,18 @@
     <%= render 'layouts/user_widget' %>
   </div>
   <div id="content">
-    <div id="flash">
-      <%= flash[:notice] %>
+    <% if notice %>
+      <p class="alert-message-div alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert-message-div alert alert-danger"><%= alert %></p>
+    <% end %>
+    <!-- <div id="flash">
+      <%#= flash[:notice] %>
     </div>
     <div id ="devise-flash">
-      <%= flash[:alert] %>
-    </div>
+      <%#= flash[:alert] %>
+    </div> -->
     <%= yield %>
   </div>
 </div>
